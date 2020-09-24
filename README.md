@@ -19,8 +19,7 @@
 * `POST /articles` (создаёт статью с переданными в теле keyword, title, text, date, source, link и image);
 * `DELETE /articles/articleId` (удаляет сохранённую статью  по _id).
 
-# Как найти
+## Как найти
 
 Публичный IP-адрес сервера: xxx.xxx.xxx.xxx
-
 Домен: https://api.ai-small.tk/ 
