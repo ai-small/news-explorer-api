@@ -4,48 +4,42 @@ const validator = require('validator');
 const articleSchema = new mongoose.Schema({
   keyword: {
     type: String,
-    required: true,
-    minlength: 2,
-    maxlength: 30,
+    required: [true, 'Поле keyword должно быть заполнено'],
   },
   title: {
     type: String,
-    required: true,
-    minlength: 2,
+    required: [true, 'Поле title должно быть заполнено'],
   },
   text: {
     type: String,
-    required: true,
-    minlength: 2,
+    required: [true, 'Поле text должно быть заполнено'],
   },
   date: {
     type: String,
-    required: true,
-    minlength: 2,
+    required: [true, 'Поле date должно быть заполнено'],
   },
   source: {
     type: String,
-    required: true,
-    minlength: 2,
+    required: [true, 'Поле source должно быть заполнено'],
   },
   link: {
     type: String,
-    required: true,
+    required: [true, 'Поле link должно быть заполнено'],
     validate: {
       validator(link) {
         return validator.isURL(link, { protocols: ['http', 'https'], require_protocol: true });
       },
-      message: (props) => `${props.value} is not a valid link!`,
+      message: (props) => `${props.value} не является валидной ссылкой!`,
     },
   },
   image: {
     type: String,
-    required: true,
+    required: [true, 'Поле image должно быть заполнено'],
     validate: {
       validator(link) {
         return validator.isURL(link, { protocols: ['http', 'https'], require_protocol: true });
       },
-      message: (props) => `${props.value} is not a valid link!`,
+      message: (props) => `${props.value} не является валидной ссылкой!`,
     },
   },
   owner: {
