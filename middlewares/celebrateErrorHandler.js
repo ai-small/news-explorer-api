@@ -1,6 +1,7 @@
 const { isCelebrateError } = require('celebrate');
 const ValidationError = require('../errors/validationError');
 const UnauthorizedError = require('../errors/unauthorizedError');
+const { unauthorizedMessage } = require('../constants');
 
 function celebrateErrorHandler(err, req, res, next) {
   if (isCelebrateError(err)) {
@@ -8,7 +9,7 @@ function celebrateErrorHandler(err, req, res, next) {
     const whatWeValidate = Object.keys(obj);
     const [celebrateError] = obj[whatWeValidate].details;
     if (celebrateError.context.label === 'authorization') {
-      return next(new UnauthorizedError('Необходима авторизация'));
+      return next(new UnauthorizedError(unauthorizedMessage));
     }
     return next(new ValidationError(`${celebrateError.message}`));
   }

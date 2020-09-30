@@ -1,30 +1,31 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const { requiredFields } = require('../constants');
 
 const articleSchema = new mongoose.Schema({
   keyword: {
     type: String,
-    required: [true, 'Поле keyword должно быть заполнено'],
+    required: [true, requiredFields.keyword],
   },
   title: {
     type: String,
-    required: [true, 'Поле title должно быть заполнено'],
+    required: [true, requiredFields.title],
   },
   text: {
     type: String,
-    required: [true, 'Поле text должно быть заполнено'],
+    required: [true, requiredFields.text],
   },
   date: {
     type: String,
-    required: [true, 'Поле date должно быть заполнено'],
+    required: [true, requiredFields.date],
   },
   source: {
     type: String,
-    required: [true, 'Поле source должно быть заполнено'],
+    required: [true, requiredFields.source],
   },
   link: {
     type: String,
-    required: [true, 'Поле link должно быть заполнено'],
+    required: [true, requiredFields.links],
     validate: {
       validator(link) {
         return validator.isURL(link, { protocols: ['http', 'https'], require_protocol: true });
@@ -34,7 +35,7 @@ const articleSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    required: [true, 'Поле image должно быть заполнено'],
+    required: [true, requiredFields.links],
     validate: {
       validator(link) {
         return validator.isURL(link, { protocols: ['http', 'https'], require_protocol: true });

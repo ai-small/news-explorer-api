@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const { authIsSuccessMessage } = require('../constants');
 
 const login = (req, res, next) => {
   const { NODE_ENV, JWT_SECRET = 'dev-secret' } = process.env;
@@ -19,6 +20,8 @@ const login = (req, res, next) => {
           httpOnly: true,
           sameSite: true,
         })
+        .status(200)
+        .send({ message: authIsSuccessMessage })
         .end();
     })
     .catch(next);

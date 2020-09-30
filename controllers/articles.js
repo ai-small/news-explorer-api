@@ -32,7 +32,7 @@ const createArticle = (req, res, next) => {
     image,
     owner,
   })
-    .then((article) => res.status(200).send({
+    .then((article) => res.status(201).send({
       keyword: article.keyword,
       title: article.title,
       text: article.text,

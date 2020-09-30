@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
+const { requiredFields } = require('../constants');
 const UnauthorizedError = require('../errors/unauthorizedError');
 
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
-    required: [true, 'Поле e-mail должно быть заполнено'],
+    required: [true, requiredFields.email],
     unique: true,
     validate: {
       validator(email) {
@@ -17,13 +18,13 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, 'Поле password должно быть заполнено'],
+    required: [true, requiredFields.password],
     unique: true,
     select: false,
   },
   name: {
     type: String,
-    required: [true, 'Поле name должно быть заполнено'],
+    required: [true, requiredFields.name],
     minlength: [2, 'Минимальная длина поля name - 2 символа'],
     maxlength: [30, 'Максимальная длина поля name - 30 символов'],
   },

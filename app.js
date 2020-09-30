@@ -5,11 +5,11 @@ const rateLimit = require('express-rate-limit');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const routes = require('./routes/index');
+const routes = require('./routes');
 // const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/errorHandler');
 // const { requestLogger, errorLogger } = require('./middlewares/logger');
-// const celebrateErrorHandler = require('./middlewares/celebrateErrorHandler');
+const celebrateErrorHandler = require('./middlewares/celebrateErrorHandler');
 // const { headerValidator } = require('./validation/headerValidator');
 
 const app = express();
@@ -39,7 +39,7 @@ app.use('/', routes);
 
 // app.use(errorLogger);
 
-// app.use(celebrateErrorHandler);
+app.use(celebrateErrorHandler);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
