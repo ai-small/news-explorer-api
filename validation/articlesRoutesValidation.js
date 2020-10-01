@@ -1,6 +1,6 @@
 const { celebrate, Joi } = require('celebrate');
 const { urlValidator } = require('./customValidators');
-const { requiredFields, badObjectId } = require('../constants');
+const { requiredFields, validationFailedMessages } = require('../constants');
 
 const createArticleValidator = celebrate({
   body: Joi.object().keys({
@@ -61,8 +61,8 @@ const articleIdValidator = celebrate({
       .hex()
       .length(24)
       .messages({
-        'string.hex': badObjectId,
-        'string.length': badObjectId,
+        'string.hex': validationFailedMessages.badObjectIdMessage,
+        'string.length': validationFailedMessages.badObjectIdMessage,
       }),
   }),
 });

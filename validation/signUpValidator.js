@@ -1,10 +1,8 @@
 const { celebrate, Joi } = require('celebrate');
 const { passwordValidator } = require('./customValidators');
 const {
-  badEmailMessage,
+  validationFailedMessages,
   requiredFields,
-  passwordTooShortMessage,
-  spacesPasswordMessage,
 } = require('../constants');
 
 const signUpValidator = celebrate({
@@ -14,7 +12,7 @@ const signUpValidator = celebrate({
       .email({ minDomainSegments: 2 })
       .messages({
         'string.empty': requiredFields.email,
-        'string.email': badEmailMessage,
+        'string.email': validationFailedMessages.badEmailMessage,
         'any.required': requiredFields.email,
       }),
     password: Joi.string()
@@ -24,15 +22,19 @@ const signUpValidator = celebrate({
       .messages({
         'string.empty': requiredFields.password,
         'any.required': requiredFields.password,
-        'string.min': passwordTooShortMessage,
-        'any.custom': spacesPasswordMessage,
+        'string.min': validationFailedMessages.passwordTooShortMessage,
+        'any.custom': validationFailedMessages.spacesPasswordMessage,
       }),
     name: Joi.string()
       .required()
+      .min(2)
+      .max(30)
       .trim()
       .messages({
         'string.empty': requiredFields.name,
         'any.required': requiredFields.name,
+        'string.min': validationFailedMessages.badUserName,
+        'string.max': validationFailedMessages.badUserName,
       }),
   }),
 });

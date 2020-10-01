@@ -2,8 +2,7 @@ const { celebrate, Joi } = require('celebrate');
 const { passwordValidator } = require('./customValidators');
 const {
   requiredFields,
-  badEmailMessage,
-  badPasswordMessage,
+  validationFailedMessages,
 } = require('../constants');
 
 const signInValidator = celebrate({
@@ -13,7 +12,7 @@ const signInValidator = celebrate({
       .email({ minDomainSegments: 2 })
       .messages({
         'string.empty': requiredFields.email,
-        'string.email': badEmailMessage,
+        'string.email': validationFailedMessages.badEmailMessage,
         'any.required': requiredFields.email,
       }),
     password: Joi.string()
@@ -22,7 +21,7 @@ const signInValidator = celebrate({
       .messages({
         'string.empty': requiredFields.password,
         'any.required': requiredFields.password,
-        'string.min': badPasswordMessage,
+        'string.min': validationFailedMessages.badPasswordMessage,
       })
       .custom(passwordValidator),
   }),

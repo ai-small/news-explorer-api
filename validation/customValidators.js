@@ -1,15 +1,11 @@
 const check = require('validator');
 const ValidationError = require('../errors/validationError');
 const UnauthorizedError = require('../errors/unauthorizedError');
-const {
-  badLinkMessage,
-  unauthorizedMessage,
-  spacesPasswordMessage,
-} = require('../constants');
+const { validationFailedMessages, headerLostsMessage } = require('../constants');
 
 const passwordValidator = (password) => {
   if (check.isEmpty(password, { ignore_whitespace: true })) {
-    throw new ValidationError(spacesPasswordMessage);
+    throw new ValidationError(validationFailedMessages.spacesPasswordMessage);
   }
 
   return password;
@@ -17,7 +13,7 @@ const passwordValidator = (password) => {
 
 const urlValidator = (link) => {
   if (!check.isURL(link, { protocols: ['http', 'https'], require_protocol: true })) {
-    throw new ValidationError(badLinkMessage);
+    throw new ValidationError(validationFailedMessages.badLinkMessage);
   }
 
   return link;
@@ -25,7 +21,7 @@ const urlValidator = (link) => {
 
 const authValidator = (authorization) => {
   if (!authorization || !authorization.startsWith('Bearer ')) {
-    throw new UnauthorizedError(unauthorizedMessage);
+    throw new UnauthorizedError(headerLostsMessage);
   }
   return authorization;
 };

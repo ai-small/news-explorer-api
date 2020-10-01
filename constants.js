@@ -1,14 +1,15 @@
 const userNotFoundMessage = 'Пользователь не найден!';
+const userDuplicateEmailMessage = 'Пользователь с таким e-mail уже существует';
 const pageNotFoundMessage = 'Запрашиваемый ресурс не найден';
 
 const authIsSuccessMessage = 'Авторизация прошла успешно';
 const unauthorizedMessage = 'Необходима авторизация';
+const headerLostsMessage = 'Некорректный заголовок или заголовок отсутствует. Авторизация завершилась неуспешно';
+const invalidEmailOrPasswordMessage = 'Неправильные почта или пароль';
 
 const articlesNotFoundMessage = 'У вас пока нет сохраненных статей';
 const articleNotFoundMessage = 'Статья не найдена';
 const articleCanNotDeleteMessage = 'Нельзя удалить чужую статью!';
-
-const castErrorMessage = 'Такой id не найден. Проверьте запрос';
 
 const requiredFields = {
   keyword: 'Поле "keyword" должно быть заполнено',
@@ -23,28 +24,28 @@ const requiredFields = {
   name: 'Поле "name" должно быть заполнено',
 };
 
-const badLinkMessage = 'Не валидный url-адрес';
-const badObjectId = 'Не валидный id';
-const badEmailMessage = 'Не валидный e-mail';
-
-const passwordTooShortMessage = 'Слишком короткий пароль';
-const badPasswordMessage = 'Проверьте пароль';
-const spacesPasswordMessage = 'Пароль не может состоять из пробелов';
+const validationFailedMessages = {
+  castErrorMessage: 'Такой id не найден. Проверьте запрос',
+  badLinkMessage: 'Не валидный url-адрес',
+  badObjectIdMessage: 'Не валидный id',
+  badEmailMessage: 'Не валидный e-mail',
+  passwordTooShortMessage: 'Слишком короткий пароль',
+  badPasswordMessage: 'Проверьте пароль',
+  spacesPasswordMessage: 'Пароль не может состоять из пробелов',
+  badUserName: 'Имя пользователя должно содержать от 2 до 30 символов',
+};
 
 module.exports = {
   userNotFoundMessage,
+  userDuplicateEmailMessage,
   pageNotFoundMessage,
   authIsSuccessMessage,
   unauthorizedMessage,
+  headerLostsMessage,
   articlesNotFoundMessage,
   articleNotFoundMessage,
   articleCanNotDeleteMessage,
-  castErrorMessage,
   requiredFields,
-  badLinkMessage,
-  badObjectId,
-  badEmailMessage,
-  passwordTooShortMessage,
-  badPasswordMessage,
-  spacesPasswordMessage,
+  validationFailedMessages,
+  invalidEmailOrPasswordMessage,
 };
