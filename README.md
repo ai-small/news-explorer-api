@@ -22,5 +22,6 @@
 
 ## Как найти
 
-Публичный IP-адрес сервера: xxx.xxx.xxx.xxx
-Домен: https://api.ai-small.tk/ 
+Публичный IP-адрес сервера: 130.193.41.66
+
+Домен: https://api.nws-explorer.tk/ 
