@@ -3,7 +3,6 @@ const NotFoundError = require('../errors/notFoundError');
 const { userNotFoundMessage } = require('../constants');
 
 const getUser = (req, res, next) => {
-  console.log(req.user);
   User.findById(req.user._id)
     .orFail(() => new NotFoundError(userNotFoundMessage))
     .then((user) => res.status(200).send({

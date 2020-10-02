@@ -40,18 +40,21 @@ const createArticleValidator = celebrate({
       }),
     link: Joi.string()
       .required()
+      .custom(urlValidator)
       .messages({
         'any.required': requiredFields.link,
         'string.empty': requiredFields.link,
-      })
-      .custom(urlValidator),
+        'any.custom': validationFailedMessages.badLinkMessage,
+
+      }),
     image: Joi.string()
       .required()
+      .custom(urlValidator)
       .messages({
         'any.required': requiredFields.image,
         'string.empty': requiredFields.image,
-      })
-      .custom(urlValidator),
+        'any.custom': validationFailedMessages.badLinkMessage,
+      }),
   }),
 });
 
