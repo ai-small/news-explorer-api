@@ -1,6 +1,11 @@
 const rateLimit = require('express-rate-limit');
 
-const { PORT = 3000, DATABASE_URL, JWT_SECRET = 'dev-secret' } = process.env;
+const {
+  NODE_ENV,
+  PORT = 3000,
+  DATABASE_URL = 'mongodb://localhost:27017/news-explorer-db',
+  JWT_SECRET = 'dev-secret',
+} = process.env;
 
 const MONGOOSE_CONFIG = {
   useNewUrlParser: true,
@@ -15,6 +20,7 @@ const limiter = rateLimit({
 });
 
 module.exports = {
+  NODE_ENV,
   PORT,
   DATABASE_URL,
   JWT_SECRET,

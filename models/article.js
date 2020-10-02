@@ -28,7 +28,7 @@ const articleSchema = new mongoose.Schema({
     required: [true, requiredFields.links],
     validate: {
       validator(link) {
-        return validator.isURL(link, { protocols: ['http', 'https'], require_protocol: true });
+        return validator.isURL(link);
       },
       message: (props) => `${props.value} не является валидной ссылкой!`,
     },
@@ -38,7 +38,7 @@ const articleSchema = new mongoose.Schema({
     required: [true, requiredFields.links],
     validate: {
       validator(link) {
-        return validator.isURL(link, { protocols: ['http', 'https'], require_protocol: true });
+        return validator.isURL(link);
       },
       message: (props) => `${props.value} не является валидной ссылкой!`,
     },

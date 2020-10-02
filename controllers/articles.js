@@ -47,10 +47,10 @@ const createArticle = (req, res, next) => {
 const deleteArticle = (req, res, next) => {
   Article.findById(req.params.articleId)
     .orFail(() => new NotFoundError(articleNotFoundMessage))
-    .populate('owner')
+    .populate('owner', '_id')
     .then((articleData) => {
       if (articleData.owner._id.toString() !== req.user._id) {
-        return Promise.reject(new ForbiddenError(articleCanNotDeleteMessage));
+        throw new ForbiddenError(articleCanNotDeleteMessage);
       }
       return articleData;
     })

@@ -11,6 +11,8 @@ const articlesNotFoundMessage = 'У вас пока нет сохраненны�
 const articleNotFoundMessage = 'Статья не найдена';
 const articleCanNotDeleteMessage = 'Нельзя удалить чужую статью!';
 
+const serverErrorMessage = 'На сервере произошла ошибка';
+
 const requiredFields = {
   keyword: 'Поле "keyword" должно быть заполнено',
   title: 'Поле "title" должно быть заполнено',
@@ -45,6 +47,7 @@ module.exports = {
   articlesNotFoundMessage,
   articleNotFoundMessage,
   articleCanNotDeleteMessage,
+  serverErrorMessage,
   requiredFields,
   validationFailedMessages,
   invalidEmailOrPasswordMessage,

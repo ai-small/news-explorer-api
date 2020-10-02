@@ -12,7 +12,7 @@ const passwordValidator = (password) => {
 };
 
 const urlValidator = (link) => {
-  if (!check.isURL(link, { protocols: ['http', 'https'], require_protocol: true })) {
+  if (!check.isURL(link)) {
     throw new ValidationError(validationFailedMessages.badLinkMessage);
   }
 
