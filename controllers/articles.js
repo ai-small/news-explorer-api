@@ -54,8 +54,8 @@ const deleteArticle = (req, res, next) => {
       }
       return articleData;
     })
-    .then(() => {
-      Article.findByIdAndRemove(req.params.articleId)
+    .then((articleData) => {
+      Article.deleteOne({ _id: articleData._id })
         .orFail(() => new NotFoundError(articleNotFoundMessage))
         .then((article) => res.status(200).send({ article }))
         .catch(next);

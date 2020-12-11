@@ -32,5 +32,4 @@ app.use(errorLogger);
 app.use(celebrateErrorHandler);
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-});
+app.listen(PORT, () => {});
