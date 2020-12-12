@@ -14,6 +14,28 @@ const MONGOOSE_CONFIG = {
   useUnifiedTopology: true,
 };
 
+const CORS_CONFIG = {
+  origin: [
+    'http://localhost:8080',
+    'https://nws-explorer.tk',
+    'https://www.nws-explorer.tk',
+    'http://nws-explorer.tk',
+    'http://www.nws-explorer.tk',
+    'http://ai-small.github.io',
+    'https://ai-small.github.io',
+  ],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: [
+    'Content-Type',
+    'origin',
+    'cookie',
+    'x-access-token',
+  ],
+  credentials: true,
+};
+
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
@@ -25,5 +47,6 @@ module.exports = {
   DATABASE_URL,
   JWT_SECRET,
   MONGOOSE_CONFIG,
+  CORS_CONFIG,
   limiter,
 };
