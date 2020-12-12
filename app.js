@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -12,6 +13,7 @@ const {
   PORT,
   DATABASE_URL,
   MONGOOSE_CONFIG,
+  CORS_CONFIG,
   limiter,
 } = require('./config');
 
@@ -26,6 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(requestLogger);
+app.use('*', cors(CORS_CONFIG));
 app.use('/', routes);
 app.use(errorLogger);
 
