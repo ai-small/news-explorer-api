@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(requestLogger);
-app.use(cors(CORS_CONFIG));
+app.use('*', cors(CORS_CONFIG));
 app.use('/', routes);
 app.use(errorLogger);
 app.use(celebrateErrorHandler);
