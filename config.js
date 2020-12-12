@@ -26,7 +26,6 @@ const CORS_CONFIG = {
   allowedHeaders: [
     'Content-Type',
     'origin',
-    'cookie',
     'Authorization',
   ],
   credentials: true,
