@@ -4,8 +4,10 @@ const UnauthorizedError = require('../errors/unauthorizedError');
 const { unauthorizedMessage } = require('../constants');
 
 module.exports = (req, res, next) => {
-  const { authorization } = req.headers;
-  const token = authorization.replace('Bearer ', '');
+  if (!req.cookies.jwt) {
+    throw new UnauthorizedError(unauthorizedMessage);
+  }
+  const token = req.cookies.jwt;
   let payload;
   try {
     payload = jwt.verify(token, JWT_SECRET);

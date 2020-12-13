@@ -4,7 +4,6 @@ const pageNotFoundMessage = 'Запрашиваемый ресурс не най
 
 const authIsSuccessMessage = 'Авторизация прошла успешно';
 const unauthorizedMessage = 'Необходима авторизация';
-const headerLostsMessage = 'Некорректный заголовок или заголовок отсутствует. Авторизация завершилась неуспешно';
 const invalidEmailOrPasswordMessage = 'Неправильные почта или пароль';
 
 const articlesNotFoundMessage = 'У вас пока нет сохраненных статей';
@@ -43,7 +42,6 @@ module.exports = {
   pageNotFoundMessage,
   authIsSuccessMessage,
   unauthorizedMessage,
-  headerLostsMessage,
   articlesNotFoundMessage,
   articleNotFoundMessage,
   articleCanNotDeleteMessage,

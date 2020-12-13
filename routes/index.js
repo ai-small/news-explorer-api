@@ -2,7 +2,7 @@ const router = require('express').Router();
 const signUpRouter = require('./signup');
 const signInRouter = require('./signin');
 const auth = require('../middlewares/auth');
-const { headerValidator } = require('../validation/headerValidator');
+// const { headerValidator } = require('../validation/headerValidator');
 const usersRouter = require('./users');
 const articlesRouter = require('./articles');
 const notFound = require('./notFound');
@@ -10,7 +10,8 @@ const notFound = require('./notFound');
 router.use('/signin', signInRouter);
 router.use('/signup', signUpRouter);
 
-router.use(headerValidator, auth);
+router.use(auth);
+// router.use(headerValidator, auth);
 
 router.use('/users', usersRouter);
 router.use('/articles', articlesRouter);
