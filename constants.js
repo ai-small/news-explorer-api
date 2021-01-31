@@ -5,6 +5,7 @@ const pageNotFoundMessage = 'Запрашиваемый ресурс не най
 const authIsSuccessMessage = 'Авторизация прошла успешно';
 const unauthorizedMessage = 'Необходима авторизация';
 const invalidEmailOrPasswordMessage = 'Неправильные почта или пароль';
+const logoutSuccessMessage = 'Токен удалён';
 
 const articlesNotFoundMessage = 'У вас пока нет сохраненных статей';
 const articleNotFoundMessage = 'Статья не найдена';
@@ -49,4 +50,5 @@ module.exports = {
   requiredFields,
   validationFailedMessages,
   invalidEmailOrPasswordMessage,
+  logoutSuccessMessage,
 };

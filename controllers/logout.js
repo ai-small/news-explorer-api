@@ -5,7 +5,7 @@ const { logoutSuccessMessage } = require('../constants');
 
 const logout = (req, res) => {
   res
-    .clearCookie('jwt', token, {
+    .clearCookie('jwt', {
       maxAge: 3600000 * 24 * 7,
       httpOnly: true,
       sameSite: 'none',
