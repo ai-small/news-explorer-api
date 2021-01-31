@@ -19,6 +19,10 @@ const articleSchema = new mongoose.Schema({
     type: String,
     required: [true, requiredFields.date],
   },
+  datetime: {
+    type: String,
+    required: [true, requiredFields.date],
+  },
   source: {
     type: String,
     required: [true, requiredFields.source],
