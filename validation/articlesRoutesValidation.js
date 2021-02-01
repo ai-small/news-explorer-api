@@ -31,6 +31,12 @@ const createArticleValidator = celebrate({
         'any.required': requiredFields.date,
         'string.empty': requiredFields.date,
       }),
+    datetime: Joi.string()
+      .required()
+      .messages({
+        'any.required': requiredFields.datetime,
+        'string.empty': requiredFields.datetime,
+      }),
     source: Joi.string()
       .required()
       .trim()
