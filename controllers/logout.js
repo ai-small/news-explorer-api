@@ -1,6 +1,3 @@
-// const jwt = require('jsonwebtoken');
-// const { NODE_ENV, JWT_SECRET } = require('../config');
-// const User = require('../models/user');
 const { logoutSuccessMessage } = require('../constants');
 
 const logout = (req, res) => {
@@ -8,8 +5,8 @@ const logout = (req, res) => {
     .clearCookie('jwt', {
       maxAge: 3600000 * 24 * 7,
       httpOnly: true,
-      sameSite: 'none',
-      // secure: true,
+      sameSite: 'strict',
+      secure: true,
     })
     .status(200)
     .send({ message: logoutSuccessMessage });
