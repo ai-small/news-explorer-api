@@ -5,7 +5,7 @@ const logout = (req, res) => {
     .clearCookie('jwt', {
       maxAge: 3600000 * 24 * 7,
       httpOnly: true,
-      sameSite: 'strict',
+      sameSite: 'none',
       secure: true,
     })
     .status(200)
