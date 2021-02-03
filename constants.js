@@ -4,8 +4,8 @@ const pageNotFoundMessage = 'Запрашиваемый ресурс не най
 
 const authIsSuccessMessage = 'Авторизация прошла успешно';
 const unauthorizedMessage = 'Необходима авторизация';
-const headerLostsMessage = 'Некорректный заголовок или заголовок отсутствует. Авторизация завершилась неуспешно';
 const invalidEmailOrPasswordMessage = 'Неправильные почта или пароль';
+const logoutSuccessMessage = 'Токен удалён';
 
 const articlesNotFoundMessage = 'У вас пока нет сохраненных статей';
 const articleNotFoundMessage = 'Статья не найдена';
@@ -18,6 +18,7 @@ const requiredFields = {
   title: 'Поле "title" должно быть заполнено',
   text: 'Поле "text" должно быть заполнено',
   date: 'Поле "date" должно быть заполнено',
+  datetime: 'Поле "datetime" должно быть заполнено',
   source: 'Поле "source" должно быть заполнено',
   link: 'Поле "link" должно быть заполнено',
   image: 'Поле "image" должно быть заполнено',
@@ -43,7 +44,6 @@ module.exports = {
   pageNotFoundMessage,
   authIsSuccessMessage,
   unauthorizedMessage,
-  headerLostsMessage,
   articlesNotFoundMessage,
   articleNotFoundMessage,
   articleCanNotDeleteMessage,
@@ -51,4 +51,5 @@ module.exports = {
   requiredFields,
   validationFailedMessages,
   invalidEmailOrPasswordMessage,
+  logoutSuccessMessage,
 };

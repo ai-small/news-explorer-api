@@ -16,6 +16,7 @@ const createArticle = (req, res, next) => {
     title,
     text,
     date,
+    datetime,
     source,
     link,
     image,
@@ -27,6 +28,7 @@ const createArticle = (req, res, next) => {
     title,
     text,
     date,
+    datetime,
     source,
     link,
     image,
@@ -37,9 +39,11 @@ const createArticle = (req, res, next) => {
       title: article.title,
       text: article.text,
       date: article.date,
+      datetime: article.datetime,
       source: article.source,
       link: article.link,
       image: article.image,
+      id: article._id,
     }))
     .catch(next);
 };

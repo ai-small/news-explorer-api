@@ -1,7 +1,6 @@
 const check = require('validator');
 const ValidationError = require('../errors/validationError');
-const UnauthorizedError = require('../errors/unauthorizedError');
-const { validationFailedMessages, headerLostsMessage } = require('../constants');
+const { validationFailedMessages } = require('../constants');
 
 const passwordValidator = (password) => {
   if (check.isEmpty(password, { ignore_whitespace: true })) {
@@ -19,11 +18,4 @@ const urlValidator = (link) => {
   return link;
 };
 
-const authValidator = (authorization) => {
-  if (!authorization || !authorization.startsWith('Bearer ')) {
-    throw new UnauthorizedError(headerLostsMessage);
-  }
-  return authorization;
-};
-
-module.exports = { passwordValidator, urlValidator, authValidator };
+module.exports = { passwordValidator, urlValidator };

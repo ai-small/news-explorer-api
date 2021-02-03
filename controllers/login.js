@@ -18,10 +18,11 @@ const login = (req, res, next) => {
         .cookie('jwt', token, {
           maxAge: 3600000 * 24 * 7,
           httpOnly: true,
-          sameSite: true,
+          sameSite: 'none',
+          secure: true,
         })
         .status(200)
-        .send({ message: authIsSuccessMessage })
+        .send({ message: authIsSuccessMessage, name: user.name, email: user.email })
         .end();
     })
     .catch(next);

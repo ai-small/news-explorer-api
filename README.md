@@ -12,13 +12,14 @@
 
 ## Роуты
 
-В API 6 роутов:
+В API 7 роутов:
 * `POST /signup` (создаёт пользователя с переданными в теле email, password и name);
 * `POST /signin` (проверяет переданные в теле почту и пароль и возвращает JWT);
 * `GET /users/me` (возвращает email и имя пользователя);
 * `GET /articles` (возвращает все сохранённые пользователем статьи);
 * `POST /articles` (создаёт статью с переданными в теле keyword, title, text, date, source, link и image);
-* `DELETE /articles/articleId` (удаляет сохранённую статью  по _id).
+* `DELETE /articles/articleId` (удаляет сохранённую статью  по _id);
+* `POST /logout` (удаляет куки).
 
 ## Как найти
 
